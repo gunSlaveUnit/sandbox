@@ -3,7 +3,6 @@
 
 import requests
 import fake_useragent
-from bs4 import BeautifulSoup
 
 LINK = 'https://www.cyberforum.ru/posting.php?do=login'
 USER = fake_useragent.UserAgent().random
