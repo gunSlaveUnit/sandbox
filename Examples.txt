@@ -1,0 +1,14 @@
+	// Определение чётности
+	int n = 51271;
+	if ((n & 1) != 0) std::cout << "Нечётный" << std::endl;
+	else std::cout << "Чётный" << std::endl;
+
+	// Подсчёт цифр в числе через логарифм
+	int amountDigitsInNumbers = floor(log10(n)) + 1;
+	std::cout << amountDigitsInNumbers << std::endl;
+
+	// Старшая цифра в числе, первая т.е.
+	double k = log10(n);
+	k = k - floor(k);
+	int result = pow(10, k);
+	std::cout << result << std::endl;
