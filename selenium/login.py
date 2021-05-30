@@ -10,6 +10,7 @@ from selenium.webdriver.common.keys import Keys
 try:
     from settings import USERNAME, PASSWORD, DRIVER_PATH, LINK
 except ImportError:
+    from settings_default import USERNAME, PASSWORD, DRIVER_PATH, LINK
     print('Fill vars in settings_default.py and rename it to settings.py')
 
 
