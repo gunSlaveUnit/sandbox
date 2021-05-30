@@ -8,10 +8,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 try:
-    from settings import USERNAME, PASSWORD, DRIVER_PATH, LINK
+    from Settings import USERNAME, PASSWORD, DRIVER_PATH, LINK
 except ImportError:
-    from settings_default import USERNAME, PASSWORD, DRIVER_PATH, LINK
-    print('Fill vars in settings_default.py and rename it to settings.py')
+    from SettingsDefault import USERNAME, PASSWORD, DRIVER_PATH, LINK
+    print('Fill vars in SettingsDefault.py and rename it to Settings.py')
 
 
 def login():
