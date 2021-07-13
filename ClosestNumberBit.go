@@ -8,7 +8,7 @@ package main
 import "fmt"
 
 func getTrailingBitsCount(number int) (int, int) {
-	if number == 0 {
+	if number == 0 || number == -1 {
 		return -1, -1
 	}
 
@@ -21,12 +21,16 @@ func getTrailingBitsCount(number int) (int, int) {
 	}
 
 	if number == 0 {
-		return -1, -1
+		return 32 - trailingOnesCount, trailingOnesCount
 	}
 
 	for number & 1 == 0 {
 		trailingZeroesCount++
 		number = number >> 1
+	}
+
+	if trailingZeroesCount + trailingOnesCount == 31 {
+		return -1, -1
 	}
 
 	return trailingZeroesCount, trailingOnesCount
@@ -47,6 +51,11 @@ func getClosestLowerNumber(number int) int {
 	}
 
 	bitsToClear := amountZeroes + amountOnes + 1
+
+	if amountZeroes + amountOnes == 33 {
+		return number << amountZeroes
+	}
+
 	number = clearRightBits(number, bitsToClear)
 	number = setBits(number, amountZeroes - 1, amountOnes + 1)
 
