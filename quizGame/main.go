@@ -5,6 +5,7 @@ import (
 	"os"
 	"fmt"
 	"encoding/csv"
+	"strings"
 )
 
 type problem struct {
@@ -17,7 +18,7 @@ func parseLines(lines [][]string) []problem {
 	for i, line := range lines {
 		ret[i] = problem {
 			q: line[0], 
-			a: line[1],
+			a: strings.TrimSpace(line[1]),
 		}
 	}
 	return ret
@@ -35,10 +36,18 @@ func main() {
 	if err != nil {
 		exit("Failed to parse the provided CSV file")
 	}
+
+	amountCorrectAnswers := 0
 	problems := parseLines(lines)
 	for i, p := range problems {
 		fmt.Printf("Problem %d: %s = \n", i + 1, p.q)
+		var answer string
+		fmt.Scanf("%s", &answer)
+		if answer == p.a {
+			amountCorrectAnswers++
+		}
 	}
+	fmt.Printf("You scored %d of %d\n", amountCorrectAnswers, len(problems))
 }
 
 func exit(message string) {
