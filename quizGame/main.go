@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"encoding/csv"
 	"strings"
+	"time"
 )
 
 type problem struct {
@@ -38,16 +39,29 @@ func main() {
 		exit("Failed to parse the provided CSV file")
 	}
 
+	timer := time.NewTimer(time.Duration(*timeLimit) * time.Second)
+
 	amountCorrectAnswers := 0
 	problems := parseLines(lines)
-	for i, p := range problems {
-		fmt.Printf("Problem %d: %s = \n", i + 1, p.q)
-		var answer string
-		fmt.Scanf("%s", &answer)
-		if answer == p.a {
-			amountCorrectAnswers++
+	problemloop:
+		for i, p := range problems {
+			fmt.Printf("Problem %d: %s = ", i + 1, p.q)
+			answerCh := make(chan string)
+			go func() {
+				var answer string
+				fmt.Scanf("%s", &answer)
+				answerCh <- answer
+			}()
+			select {
+			case <-timer.C:
+				fmt.Println()
+				break problemloop
+			case answer := <-answerCh:
+				if answer == p.a {
+					amountCorrectAnswers++
+				}
+			}
 		}
-	}
 	fmt.Printf("You scored %d of %d\n", amountCorrectAnswers, len(problems))
 }
 
