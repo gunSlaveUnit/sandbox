@@ -2,7 +2,7 @@ import time
 
 chars = r'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()_-+=\|{[]};:'",./?"
 
-password = 'XT$a23'
+password = 'XT$6'
 
 sequence = []
 
