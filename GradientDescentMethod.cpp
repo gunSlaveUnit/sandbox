@@ -10,6 +10,9 @@ double f(double x1, double x2) {
 const double t = 0.001;
 
 double partialDerivative(double* x, int i) {
+	// b = 0.05
+	// return (f(x-2*b) - 8*f(x-b) + 8*f(x+b) - f(x+2*b)) // (12 * b)
+	// up - better method to count partial derivative
 	double x1 = (!i) ? x[0] + t : x[0];
 	double x2 = (i) ? x[1] + t : x[1];
 	return (f(x1, x2) - f(x[0], x[1])) / t;
