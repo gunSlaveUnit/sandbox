@@ -41,6 +41,22 @@ def binary_search_two(sequence, target):
     return l if sequence[l] == target else -1
 
 
+def interpolation_search(a, e):
+    left = 0
+    right = len(a) - 1
+
+    while a[left] < e < a[right]:
+        pos = left + ((e - a[left]) * (right - left)) // (a[right] - a[left])
+        if a[pos] == e:
+            return pos
+        if a[pos] > e:
+            right = pos - 1
+        else:
+            left = pos + 1
+
+    return -1
+
+
 if __name__ == '__main__':
     print(binary_search([10, 20, 30, 40, 50], 23))
     print(binary_search_two([10, 20, 30, 40, 50], 23))
