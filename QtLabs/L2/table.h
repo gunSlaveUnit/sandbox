@@ -1,21 +1,21 @@
 //
-// Created by gunSlaveUnit on 28.03.2022.
+// Created by gunslaveunit on 31.03.2022.
 //
 
 #pragma once
 
-#ifndef LAB1_TEXTCOLORCHANGER_TABLE_H
-#define LAB1_TEXTCOLORCHANGER_TABLE_H
+#ifndef GAMEDIR_TABLE_H
+#define GAMEDIR_TABLE_H
 
 
 #include <QTableView>
 
 class Table final : public QTableView {
-    Q_OBJECT
+Q_OBJECT
 public:
     explicit Table(QWidget *parent = nullptr);
     ~Table() final;
 };
 
 
-#endif //LAB1_TEXTCOLORCHANGER_TABLE_H
+#endif //GAMEDIR_TABLE_H

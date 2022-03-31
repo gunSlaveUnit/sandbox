@@ -1,5 +1,5 @@
 //
-// Created by gunSlaveUnit on 28.03.2022.
+// Created by gunslaveunit on 31.03.2022.
 //
 
 #include "model.h"
@@ -56,4 +56,18 @@ bool Model::setData(const QModelIndex &index, const QVariant &value, int role) {
 
 Qt::ItemFlags Model::flags(const QModelIndex &index) const {
     return Qt::ItemIsEditable | QAbstractTableModel::flags(index);
+}
+
+void Model::addRow(QVarLengthArray<QString, HEADERS_COUNT> &row) {
+    beginInsertRows(QModelIndex(), gridData.size(), gridData.size());
+    gridData.push_back(row);
+    endInsertRows();
+    ++ROWS_COUNT;
+}
+
+void Model::deleteRow(uint32_t row) {
+    beginRemoveRows(QModelIndex(), row, row);
+    gridData.remove(row);
+    endRemoveRows();
+    --ROWS_COUNT;
 }

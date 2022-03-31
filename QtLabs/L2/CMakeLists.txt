@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
-project(Lab1_TextColorChanger)
+project(GameDir)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
@@ -14,8 +14,8 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(Lab1_TextColorChanger main.cpp mainwindow.cpp mainwindow.h table.cpp table.h model.cpp model.h)
-target_link_libraries(Lab1_TextColorChanger
+add_executable(GameDir main.cpp mainwindow.cpp mainwindow.h table.cpp table.h dialog.cpp dialog.h model.cpp model.h delegate.cpp delegate.h)
+target_link_libraries(GameDir
         Qt::Core
         Qt::Gui
         Qt::Widgets
