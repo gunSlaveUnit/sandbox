@@ -68,6 +68,24 @@ void GameModel::addRow(QList<QString> &row) {
 
 void GameModel::setRowAt(int index, QList<QString> &row)
 {
+    auto game = games[index];
+
+    QSqlQuery query;
+    query.prepare("UPDATE games "
+                  "SET title = :title, "
+                  "genre = :genre, "
+                  "company = :company, "
+                  "platform = :platform "
+                  "WHERE title = :title;");
+
+    query.bindValue(":title", row[0]);
+    query.bindValue(":genre", row[1]);
+    query.bindValue(":company", row[2]);
+    query.bindValue(":platform", row[3]);
+    query.bindValue(":title", game.title);
+
+    query.exec();
+
     Game editedItem {row[0], row[1], row[2], row[3]};
     games[index] = editedItem;
     auto modelIndex = createIndex(index, 0);
