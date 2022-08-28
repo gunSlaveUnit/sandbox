@@ -1,11 +1,7 @@
 fn gcd(mut a: u32, mut b: u32) -> u32 {
     /// GCD - Greatest Common Divisor.
     /// Calculated by the Euclidean algorithm.
-    loop {
-        if b == 0 {
-            break;
-        }
-
+    while (b != 0) {
         let remainder = a % b;
         a = b;
         b = remainder;
