@@ -14,8 +14,8 @@ def bubble_sort(array):
     while swapped:
         swapped = False
         for i in range(1, len(array)):
-            if array[i-1] > array[i]:
-                array[i-1], array[i] = array[i], array[i-1]
+            if array[i - 1] > array[i]:
+                array[i - 1], array[i] = array[i], array[i - 1]
                 swapped = True
     return array
 
@@ -36,10 +36,10 @@ def insertion_sort(array):
     for sort_length in range(1, len(array)):
         current_item = array[sort_length]
         insert_index = sort_length
-        while insert_index > 0 and current_item < array[insert_index-1]:
-            array[insert_index] = array[insert_index-1]
+        while insert_index > 0 and current_item < array[insert_index - 1]:
+            array[insert_index] = array[insert_index - 1]
             insert_index -= 1
-        array[insert_index]=current_item
+        array[insert_index] = current_item
     return array
 
 
@@ -62,7 +62,7 @@ def merge_sort(array):
 
     if len(array) <= 1:
         return array
-    left, right = merge_sort(array[:len(array)//2]), merge_sort(array[len(array)//2:])
+    left, right = merge_sort(array[:len(array) // 2]), merge_sort(array[len(array) // 2:])
     return merge(left, right)
 
 
@@ -70,7 +70,7 @@ def quick_sort(array):
     if len(array) <= 1:
         return array
     smaller, equal, larger = [], [], []
-    pivot = array[random.randint(0, len(array)-1)]
+    pivot = array[random.randint(0, len(array) - 1)]
     for x in array:
         if x < pivot:
             smaller.append(x)
@@ -78,35 +78,36 @@ def quick_sort(array):
             equal.append(x)
         else:
             larger.append(x)
-    return quick_sort(smaller)+equal+quick_sort(larger)
+    return quick_sort(smaller) + equal + quick_sort(larger)
 
 
 def quick_sort_inplace(a, low=0, high=None):
     def partition(a, low, high):
-        i = low-1
+        i = low - 1
         pivot = a[high]
         for j in range(low, high):
             if a[j] <= pivot:
                 i += 1
                 a[i], a[j] = a[j], a[i]
-        a[i+1], a[high] = a[high], a[i+1]
-        return i+1
+        a[i + 1], a[high] = a[high], a[i + 1]
+        return i + 1
 
     if high is None:
-        high = len(a)-1
+        high = len(a) - 1
     if low < high:
         partition_index = partition(a, low, high)
-        quick_sort_inplace(a, low, partition_index-1)
-        quick_sort_inplace(a, partition_index+1, high)
+        quick_sort_inplace(a, low, partition_index - 1)
+        quick_sort_inplace(a, partition_index + 1, high)
     return a
 
 
 def bogo_sort(a):
     def is_sorted(a):
         for i in range(1, len(a)):
-            if a[i]<a[i-1]:
+            if a[i] < a[i - 1]:
                 return False
         return True
+
     while not is_sorted(a):
         random.shuffle(a)
     return a
