@@ -1,5 +1,5 @@
-#! usr/bin/env python3
-# -*- coding: utf8 -*-
+"""Uses the stack to analyze the balance of parentheses in an expression."""
+
 
 class Stack:
     def __init__(self):
