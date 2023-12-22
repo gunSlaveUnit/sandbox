@@ -1,6 +1,3 @@
-#! usr/bin/env python3
-# -*- coding: utf8 -*-
-
 def calculate_pi(n_terms):
     numerator = 4.0
     denominator = 1.0
