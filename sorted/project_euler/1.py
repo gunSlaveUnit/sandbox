@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """Multiples of 3 or 5"""
 
 s = 0

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """Even Fibonacci Numbers"""
 
 s = 0
