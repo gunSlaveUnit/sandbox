@@ -1,6 +1,11 @@
-#include <iostream>
-#include <string>
+/*
+One long evening I decided that I needed a calculator.
+Below is a program that is able to solve simple examples of the form (a + b) * (c / d)
+*/
+
 #include <map>
+#include <string>
+#include <iostream>
 #include <algorithm>
 
 std::map<char, int> OPERATOR_WITH_PRIORITY {

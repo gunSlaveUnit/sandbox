@@ -8,8 +8,7 @@ struct Polynom
 	double c;
 };
 
-void roots(Polynom p)
-{
+void roots(Polynom p) {
 	double x1, x2, D;
 	D = p.b * p.b - 4 * p.a * p.c;
 	if (p.a == 0)
