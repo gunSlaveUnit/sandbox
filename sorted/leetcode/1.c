@@ -8,8 +8,8 @@ int* two_sum(const int* nums, int numsSize, int target, int* returnSize) {
     result[0] = -1;
     result[1] = -1;
 
-    int* keys = (int*)malloc(sizeof(int) * numsSize);
-    int* values = (int*)malloc(sizeof(int) * numsSize);
+    int keys[10000];
+    int values[10000];
     int last_index = 0;
 
     for (int i = 0; i < numsSize; ++i) {
@@ -20,7 +20,7 @@ int* two_sum(const int* nums, int numsSize, int target, int* returnSize) {
             if (n == keys[j]) {
                 result[0] = values[j];
                 result[1] = i;
-                is_pair_found = 1;
+                return result;
             }
         }
 
@@ -31,9 +31,6 @@ int* two_sum(const int* nums, int numsSize, int target, int* returnSize) {
         }
     }
 
-    free(values);
-    free(keys);
-    
     return result;
 }
 
