@@ -4,9 +4,7 @@ Largest Prime Factor
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	n := 600851475143
@@ -14,10 +12,10 @@ func main() {
 	factor := 3
 	last := factor
 	for n > 1 {
-		if n % factor == 0 {
+		if n%factor == 0 {
 			last = factor
 
-			for n % factor == 0 {
+			for n%factor == 0 {
 				n /= factor
 			}
 		}
